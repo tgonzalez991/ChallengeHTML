@@ -1,0 +1,213 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+$g-grey: #313131;
+$g-grey-D6:#D6D5D674;
+$g-grey-EC: #ECECEC;
+$g-grey-88:#888888;
+$pink:#C23F81;
+$g-violet: #74667E;
+
+$font-ppal: "Roboto";
+
+@mixin small {
+    @media only screen and (min-width: 600px) {
+      @content;
+    }
+}
+
+@mixin medium {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+}
+
+body{
+    font-family: $font-ppal;
+}
+
+.gallery{    
+    .heading{
+        margin-bottom: 50px;
+        text-align: center;
+
+        .h2{
+            font-weight: bold;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+        }
+    } 
+
+    .transform-on-hover{
+         &:hover{
+            @include small {
+                transform: translateY(-10px) scale(1.02);
+                box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15) !important; 
+            }
+         }
+    }
+    .more{
+        a{
+            color:$pink;
+            @include medium {
+                font-size: 1.25em;
+            }
+            font-size: 1.125em;
+        }
+    }
+
+}
+
+.gallery.cards-gallery {
+    a {
+        
+        &:hover{
+            text-decoration: none;
+        }
+    }
+
+    h6 {
+        font-size: 1em;
+        letter-spacing: 0.48px;
+        font-family: $font-ppal;
+        font-weight: 600;
+        padding-top: 0.25em;
+        a{
+            color: $g-grey; 
+        }
+    }
+
+    .card{
+        transition: 0.4s ease; 
+        margin-bottom: 30px; 
+    }
+
+    .card-body {
+        background-color: $g-grey-D6;
+        border-radius: 0 0 8px 8px;
+        padding: 0.8rem 1.1rem;
+        line-height: 0.5;
+        p{
+            font-size: 0.875em; 
+            letter-spacing: 0.2px;
+        }
+
+        img{
+            float: left;
+            margin-right: 15px;
+            width: 46px;
+        }
+    }
+
+    .card-img-top{
+        border-radius: 8px 8px 0 0;
+    }
+}
+
+@mixin inputPlaceholder() {
+    $selector: '';
+    $prefixes: (
+        moz: "::-moz",
+        webkit: "::-webkit",
+        ie: ":-ms"
+    );
+    @each $prop, $value in $prefixes {
+        @if $prop != "moz" {
+            $selector: #{$value}-input-placeholder;
+        } @else {
+            $selector: #{$value}-placeholder;
+        }
+        @if & {
+            &#{$selector} {
+                @content;
+            }
+        } @else {
+            #{$selector} {
+                @content;
+            }
+        }
+    }
+}
+
+.search{
+    form{
+        input{
+            background: #ECECEC;
+            width:281px !important;
+            @include medium() {
+                height: 47px;
+                border-radius: 10px;
+            }
+            border: 0;
+                @include inputPlaceholder() {
+                    background-image: url(../img/surface1.svg);
+                    background-position: right;
+                    background-repeat: no-repeat; 
+                    background-size: contain;
+                }
+        }
+        label{
+            color: $g-grey-88;
+            font-size: 1.2em;
+            padding-right: 10px;
+        }
+    }
+    .form-control:focus{
+        border-color:$pink !important;
+        box-shadow: 0 0 0 0.2rem #c23f81a6 !important;
+    }
+}
+
+/*banner*/
+.banner{
+    background: url(../img/bg-banner.jpg) no-repeat;
+    background-size: cover;
+    @include medium {
+        padding-top: 106px;
+        padding-bottom: 23px;
+    }
+    padding-top: 27px;
+    padding-bottom: 10px;
+    
+
+    h1{
+        @include medium {
+            font-size: 3.75em;
+        }
+        font-size: 2.5em;
+        letter-spacing: 2.58px;
+        font-family: $font-ppal;
+        font-weight: 900;
+    }
+}
+
+/*Header*/
+
+%menu{
+    background: $pink;
+    padding: 7px 10px;
+}
+
+
+.btn-md{
+    font-weight: 600;
+}
+.btn.pink{
+        background-color: $pink;
+}
+
+button.navbar-toggler.collapsed{
+    @extend %menu;
+}
+
+button.navbar-toggler{
+    @extend %menu;
+}
+
+/*Footer*/
+footer{
+    background: $g-grey;
+    border-top: 6px solid $pink;
+    .copy{
+        font-size: 20px;
+        font-weight: 900;
+    }
+}

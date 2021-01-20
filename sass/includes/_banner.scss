@@ -1,0 +1,22 @@
+/*banner*/
+.banner{
+    background: url(../img/bg-banner.jpg) no-repeat;
+    background-size: cover;
+    @include medium {
+        padding-top: 106px;
+        padding-bottom: 23px;
+    }
+    padding-top: 27px;
+    padding-bottom: 10px;
+    
+
+    h1{
+        @include medium {
+            font-size: 3.75em;
+        }
+        font-size: 2.5em;
+        letter-spacing: 2.58px;
+        font-family: $font-ppal;
+        font-weight: 900;
+    }
+}

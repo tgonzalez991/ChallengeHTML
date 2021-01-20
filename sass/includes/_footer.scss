@@ -1,0 +1,11 @@
+/*Footer*/
+footer{
+    background: $g-grey;
+    border-top: 6px solid $pink;
+    .copy{
+        font-size: 1.25em;
+        font-weight: 900;
+        display: inline-flex;
+        vertical-align: text-top;
+    }
+}

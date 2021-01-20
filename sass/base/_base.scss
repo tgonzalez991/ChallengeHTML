@@ -1,0 +1,40 @@
+@mixin small {
+    @media only screen and (min-width: 600px) {
+      @content;
+    }
+}
+
+@mixin medium {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+}
+
+body{
+    font-family: 'Roboto';
+}
+
+@mixin inputPlaceholder() {
+    $selector: '';
+    $prefixes: (
+        moz: "::-moz",
+        webkit: "::-webkit",
+        ie: ":-ms"
+    );
+    @each $prop, $value in $prefixes {
+        @if $prop != "moz" {
+            $selector: #{$value}-input-placeholder;
+        } @else {
+            $selector: #{$value}-placeholder;
+        }
+        @if & {
+            &#{$selector} {
+                @content;
+            }
+        } @else {
+            #{$selector} {
+                @content;
+            }
+        }
+    }
+}

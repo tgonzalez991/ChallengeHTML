@@ -1,0 +1,28 @@
+.search{
+    form{
+        input{
+            background: #ECECEC;
+            width:281px !important;
+            @include medium() {
+                height: 47px;
+                border-radius: 10px;
+            }
+            border: 0;
+                @include inputPlaceholder() {
+                    background-image: url(../img/surface1.svg);
+                    background-position: right;
+                    background-repeat: no-repeat; 
+                    background-size: contain;
+                }
+        }
+        label{
+            color: $g-grey-88;
+            font-size: 1.2em;
+            padding-right: 10px;
+        }
+    }
+    .form-control:focus{
+        border-color:$pink !important;
+        box-shadow: 0 0 0 0.2rem #c23f81a6 !important;
+    }
+}

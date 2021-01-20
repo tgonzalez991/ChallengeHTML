@@ -1,0 +1,22 @@
+/*Header*/
+
+%menu{
+    background: $pink;
+    padding: 7px 10px;
+}
+
+
+.btn-md{
+    font-weight: 600;
+}
+.btn.pink{
+        background-color: $pink;
+}
+
+button.navbar-toggler.collapsed{
+    @extend %menu;
+}
+
+button.navbar-toggler{
+    @extend %menu;
+}
